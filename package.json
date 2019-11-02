@@ -13,7 +13,8 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test --env=jsdom",
-    "lint": "tsdx lint"
+    "lint": "tsdx lint",
+    "storybook": "start-storybook"
   },
   "peerDependencies": {
     "react": ">=16"
@@ -30,9 +31,12 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@storybook/react": "^5.2.5",
     "@types/jest": "^24.0.21",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.3",
+    "babel-loader": "^8.0.6",
     "husky": "^3.0.9",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
