@@ -2,7 +2,15 @@
   "prettier.singleQuote": true,
   "prettier.printWidth": 100,
   "prettier.tabWidth": 2,
+  "prettier.trailingComma": "all",
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
-  "editor.detectIndentation": false
+  "editor.detectIndentation": false,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "eslint.enable": true
 }
