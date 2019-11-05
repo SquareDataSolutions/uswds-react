@@ -1,17 +1,7 @@
 .DS_*
 *.log
 logs
-**/*.backup.*
-**/*.back.*
-.cache
+*cache*
 
 node_modules
-bower_componets
 dist
-
-*.sublime*
-
-psd
-thumb
-sketch
-
