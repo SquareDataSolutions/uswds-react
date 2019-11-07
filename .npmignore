@@ -1,0 +1,10 @@
+*.log
+logs
+*cache*
+.storybook
+.vscode
+src
+test
+.eslintrc.js
+babel.config.js
+tsconfig.json
