@@ -21,7 +21,8 @@
     "release": "standard-version"
   },
   "peerDependencies": {
-    "react": ">=16"
+    "react": ">=16",
+    "styled-components": ">= 4.4.0 < 5"
   },
   "husky": {
     "hooks": {
@@ -63,13 +64,12 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "standard-version": "^7.0.0",
+    "styled-components": "^4.4.1",
     "tsdx": "^0.11.0",
     "tslib": "^1.10.0",
     "typescript": "^3.6.4"
   },
-  "dependencies": {
-    "styled-components": "^4.4.1"
-  },
+  "dependencies": {},
   "jest": {
     "verbose": true,
     "testPathIgnorePatterns": [
