@@ -1,11 +1,10 @@
 import React from 'react';
 
-const Button = props => {
-  const { disabled, name, onClick, type, children, ...remainingProps } = props;
+const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = props => {
+  const { disabled, onClick, type, children, ...remainingProps } = props;
   return (
     <button
       disabled={disabled}
-      name={name}
       onClick={onClick}
       type={type}
       {...remainingProps}
@@ -14,5 +13,6 @@ const Button = props => {
     </button>
   );
 };
+
 
 export default Button;
