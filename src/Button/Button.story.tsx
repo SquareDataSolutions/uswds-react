@@ -6,7 +6,7 @@ const stories = storiesOf('Button', module);
 
 stories.add('Button', () => {
   return (
-    <Button disabled={false}>
+    <Button>
       {'Click Me'}
     </Button >
   )
