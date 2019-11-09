@@ -18,6 +18,7 @@
     "lint": "eslint src/**/*.tsx",
     "lint-check": "eslint --print-config src/index.ts | eslint-config-prettier-check",
     "storybook": "start-storybook",
+    "dev": "start-storybook -p 9001 -c .storybook",
     "release": "standard-version"
   },
   "peerDependencies": {
