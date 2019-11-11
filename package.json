@@ -18,10 +18,13 @@
     "lint": "eslint src/**/*.tsx",
     "lint-check": "eslint --print-config src/index.ts | eslint-config-prettier-check",
     "storybook": "start-storybook",
-    "release": "standard-version"
+    "dev": "start-storybook -p 9001 -c .storybook",
+    "release": "standard-version",
+    "deploy-storybook": "storybook-to-aws-3 -- --ci"
   },
   "peerDependencies": {
-    "react": ">=16"
+    "react": ">=16",
+    "styled-components": ">= 4.4.0 < 5"
   },
   "husky": {
     "hooks": {
@@ -49,7 +52,9 @@
     "@types/jest": "^24.0.21",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.3",
+    "@types/styled-components": "^4.1.20",
     "babel-loader": "^8.0.6",
+    "babel-plugin-styled-components": "^1.10.6",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-better-styled-components": "^1.1.2",
@@ -62,6 +67,7 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "standard-version": "^7.0.0",
+    "styled-components": "^4.4.1",
     "tsdx": "^0.11.0",
     "tslib": "^1.10.0",
     "typescript": "^3.6.4"
