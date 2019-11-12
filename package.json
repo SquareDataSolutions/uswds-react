@@ -20,7 +20,7 @@
     "storybook": "start-storybook",
     "dev": "start-storybook -p 9001 -c .storybook",
     "release": "standard-version",
-    "deploy-storybook": "storybook-to-aws-3 -- --ci"
+    "deploy-storybook": "storybook-to-aws-s3 --bucket-path=uswds-react-preview.com/"
   },
   "peerDependencies": {
     "react": ">=16",

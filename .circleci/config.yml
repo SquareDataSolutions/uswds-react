@@ -2,63 +2,50 @@
 #
 # Check {{ '/2.0/language-javascript/' | docs_url }} for more details
 #
-version: 2
-
-defaults: &defaults
-  working_directory: ~/repo
-  docker:
-    - image: circleci/node:8.9.1
-
+version: 2.1
+orbs:
+  aws-s3: circleci/aws-s3@1.0.11
 jobs:
+  install:
+    -run:
+      name: Install Packages
+      run: npm install
   test:
-    <<: *defaults
-    steps:
-      - checkout
-
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
-      - run: npm install
-      - run:
-          name: Run tests
-          command: npm run test
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-      - persist_to_workspace:
-          root: ~/repo
-          paths: .
+    -run:
+      name: Run Tests
+      run: npm run test
+  build:
+    -run:
+      name: Build Package
+      run: npm run build
   deploy:
-    <<: *defaults
+    docker:
+      - image: circleci/python:3.7-stretch
+    working_directory: ~/repo
     steps:
-      - attach_workspace:
-          at: ~/repo
       - run:
-          name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
+          name: Install awscli
+          command: sudo pip install awscli
       - run:
-          name: Publish package
-          command: npm publish
+          name: Deploy Storybook to S3
+          command: npm run deploy-storybook -- --ci
+      # - run:
+      #     name: Publish Package
+      #     run: npm run publish
 
 workflows:
   version: 2
-  test-deploy:
+  build-deploy:
     jobs:
+      - install
       - test:
-          filters:
-            tags:
-              only: /^v.*/
-      - deploy:
+          requires: -test # define this
+      - build: # define this
           requires:
             - test
+      - deploy:
+          requires:
+            - build
           filters:
-            tags:
-              only: /^v.*/
-            branches:
-              ignore: /.*/
+            branch:
+              only: master
