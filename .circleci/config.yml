@@ -18,6 +18,8 @@ jobs:
   deploy:
     docker:
       - image: circleci/python:3.7-stretch
+    docker:
+      - image: circleci/node:10-browsers
     working_directory: ~/repo
     steps:
       - run:
