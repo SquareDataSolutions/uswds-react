@@ -27,6 +27,7 @@ jobs:
       - image: circleci/python:3.7-node
     working_directory: ~/repo/
     steps:
+      - checkout
       - restore_cache:
           key: v1-repo-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
       - run:
