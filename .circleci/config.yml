@@ -38,7 +38,7 @@ jobs:
           command: npm install
       - run:
           name: Deploy storybook to S3
-          command: npm run deploy-storybook -- --ci
+          command: npm run deploy-storybook
 
 workflows:
   version: 2
