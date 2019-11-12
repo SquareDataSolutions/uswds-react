@@ -7,6 +7,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Log Branch
+          command: echo ${CIRCLE_BRANCH}
+      - run:
           name: Install Dependencies
           command: npm install
       - run:
@@ -15,11 +18,17 @@ jobs:
       - run:
           name: Build Package
           command: npm run build
+    save_cache:
+      key: v1-repo-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+      paths:
+        - ~/repo
   deploy:
     docker:
       - image: circleci/python:3.7-node
     working_directory: ~/repo/
     steps:
+      - restore_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: Install awscli
           command: sudo pip install awscli

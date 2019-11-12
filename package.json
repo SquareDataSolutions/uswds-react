@@ -10,17 +10,18 @@
     "dist"
   ],
   "scripts": {
-    "start": "tsdx watch",
     "build": "tsdx build",
-    "test": "npm run lint & jest",
-    "test-coverage": "jest --coverage",
-    "test-watch": "jest --watch",
+    "build-storybook": "build-storybook -c .storybook -o .out",
+    "deploy-storybook": "storybook-to-aws-s3 --bucket-path=uswds-react-preview.com/",
+    "dev": "start-storybook -p 9001 -c .storybook",
     "lint": "eslint src/**/*.tsx",
     "lint-check": "eslint --print-config src/index.ts | eslint-config-prettier-check",
-    "storybook": "start-storybook",
-    "dev": "start-storybook -p 9001 -c .storybook",
     "release": "standard-version",
-    "deploy-storybook": "storybook-to-aws-s3 --bucket-path=uswds-react-preview.com/"
+    "start": "tsdx watch",
+    "storybook": "start-storybook",
+    "test": "npm run lint & jest",
+    "test-coverage": "jest --coverage",
+    "test-watch": "jest --watch"
   },
   "peerDependencies": {
     "react": ">=16",
