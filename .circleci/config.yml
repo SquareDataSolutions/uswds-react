@@ -1,27 +1,17 @@
 version: 2
 jobs:
-  # build job omitted for brevity
-  install:
-    working_directory: ~/repo
-    docker:
-      - image: circleci/node:4.8.2
-    steps:
-      - run:
-          name: Install Packages
-          command: npm install
-  test:
-    working_directory: ~/repo
-    docker:
-      - image: circleci/node:4.8.2
-    steps:
-      - run:
-          name: Run Tests
-          command: npm run test
   build:
     working_directory: ~/repo
     docker:
-      - image: circleci/node:4.8.2
+      - image: circleci/node:10-browsers
     steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - run:
+          name: Run Tests
+          command: npm run test
       - run:
           name: Build Package
           command: npm run build
@@ -41,13 +31,7 @@ workflows:
   version: 2
   build-deploy:
     jobs:
-      - install
-      - test:
-          requires:
-            - install
-      - build:
-          requires:
-            - test
+      - build
       - deploy:
           requires:
             - build
