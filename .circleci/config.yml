@@ -1,51 +1,56 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check {{ '/2.0/language-javascript/' | docs_url }} for more details
-#
-version: 2.1
-orbs:
-  aws-s3: circleci/aws-s3@1.0.11
+version: 2
 jobs:
+  # build job omitted for brevity
   install:
-    run:
-      name: Install Packages
-      run: npm install
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:4.8.2
+    steps:
+      - run:
+          name: Install Packages
+          command: npm install
   test:
-    run:
-      name: Run Tests
-      run: npm run test
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:4.8.2
+    steps:
+      - run:
+          name: Run Tests
+          command: npm run test
   build:
-    run:
-      name: Build Package
-      run: npm run build
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:4.8.2
+    steps:
+      - run:
+          name: Build Package
+          command: npm run build
   deploy:
     docker:
-      image: circleci/python:3.7-stretch
+      - image: circleci/python:3.7-stretch
     working_directory: ~/repo
     steps:
-      run:
-        name: Install awscli
-        command: sudo pip install awscli
-      run:
-        name: Deploy Storybook to S3
-        command: npm run deploy-storybook -- --ci
-      # - run:
-      #     name: Publish Package
-      #     run: npm run publish
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
+      - run:
+          name: Deploy storybook to S3
+          command: npm run deploy-storybook -- --ci
 
 workflows:
-  version: 2.1
+  version: 2
   build-deploy:
     jobs:
-      install
-      test:
-        requires: -test # define this
-      build: # define this
-        requires:
-          test
-      deploy:
-        requires:
-          build
-        filters:
-          branch:
-            only: master
+      - install
+      - test:
+          requires:
+            - install
+      - build:
+          requires:
+            - test
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
