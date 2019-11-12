@@ -7,45 +7,45 @@ orbs:
   aws-s3: circleci/aws-s3@1.0.11
 jobs:
   install:
-    -run:
+    run:
       name: Install Packages
       run: npm install
   test:
-    -run:
+    run:
       name: Run Tests
       run: npm run test
   build:
-    -run:
+    run:
       name: Build Package
       run: npm run build
   deploy:
     docker:
-      - image: circleci/python:3.7-stretch
+      image: circleci/python:3.7-stretch
     working_directory: ~/repo
     steps:
-      - run:
-          name: Install awscli
-          command: sudo pip install awscli
-      - run:
-          name: Deploy Storybook to S3
-          command: npm run deploy-storybook -- --ci
+      run:
+        name: Install awscli
+        command: sudo pip install awscli
+      run:
+        name: Deploy Storybook to S3
+        command: npm run deploy-storybook -- --ci
       # - run:
       #     name: Publish Package
       #     run: npm run publish
 
 workflows:
-  version: 2
+  version: 2.1
   build-deploy:
     jobs:
-      - install
-      - test:
-          requires: -test # define this
-      - build: # define this
-          requires:
-            - test
-      - deploy:
-          requires:
-            - build
-          filters:
-            branch:
-              only: master
+      install
+      test:
+        requires: -test # define this
+      build: # define this
+        requires:
+          test
+      deploy:
+        requires:
+          build
+        filters:
+          branch:
+            only: master
