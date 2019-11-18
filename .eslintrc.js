@@ -20,14 +20,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-    '@typescript-eslint',
-    'jsx-a11y',
-    'better-styled-components',
-    'prettier',
-    'jest',
-  ],
+  plugins: ['react', '@typescript-eslint', 'jsx-a11y', 'prettier', 'jest'],
   rules: {
     '@typescript-eslint/explicit-member-accessibility': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
