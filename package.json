@@ -69,7 +69,8 @@
     "style-loader": "^1.0.0",
     "tsdx": "^0.11.0",
     "tslib": "^1.10.0",
-    "typescript": "^3.6.4"
+    "typescript": "^3.6.4",
+    "uswds": "^2.2.1"
   },
   "dependencies": {},
   "jest": {
