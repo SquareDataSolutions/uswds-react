@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DefaultButton, Button } from '.';
+import { DefaultButton } from '.';
 import { storiesOf } from '@storybook/react';
 
 const stories = storiesOf('Button', module);
@@ -20,7 +20,7 @@ stories.add('Secondary Color', () => {
   )
 });
 
-stories.add('Base Color', () => {
+stories.add('Accent Cool Color', () => {
   return (
     <DefaultButton className={'usa-button usa-button--accent-cool'}>
       {'Click Me'}
@@ -28,7 +28,7 @@ stories.add('Base Color', () => {
   )
 });
 
-stories.add('Outline', () => {
+stories.add('Base Color', () => {
   return (
     <DefaultButton className={'usa-button usa-button--base'}>
       {'Click Me'}
@@ -36,9 +36,17 @@ stories.add('Outline', () => {
   )
 });
 
-stories.add('Outline Inverse', () => {
+stories.add('Outline', () => {
   return (
     <DefaultButton className={'usa-button usa-button--outline'}>
+      {'Click Me'}
+    </DefaultButton >
+  )
+});
+
+stories.add('Outline Inverse', () => {
+  return (
+    <DefaultButton className={'usa-button usa-button--outline usa-button--inverse'}>
       {'Click Me'}
     </DefaultButton >
   )
