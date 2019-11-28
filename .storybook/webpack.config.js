@@ -10,7 +10,18 @@ module.exports = async ({ config, mode }) => {
   config.module.rules.push({
     test: /.scss$/,
     include: path.resolve(__dirname, '../src'),
-    loaders: ['style-loader', 'css-loader', 'sass-loader'],
+    use: [
+      {
+        loader: 'style-loader',
+      },
+      {
+        loader: 'css-loader',
+        options: { url: false, sourceMap: true },
+      },
+      {
+        loader: 'sass-loader',
+      },
+    ],
   });
   return config;
 };

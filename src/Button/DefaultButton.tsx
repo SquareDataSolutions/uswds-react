@@ -1,13 +1,13 @@
 import React from 'react';
 import Button from './Button';
+import '../index';
 
 interface DefaultButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  className: string,
   children: string
 }
 
-const DefaultButton: React.FC<DefaultButtonProps> = ({ className, children, ...other }) => (
-  <Button className={className} {...other}>
+const DefaultButton: React.FC<DefaultButtonProps> = ({ children, ...other }) => (
+  <Button {...other}>
     {children}
   </Button>
 );

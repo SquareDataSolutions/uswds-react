@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = props => {
-  const { children, className, ...remainingProps } = props;
+  const { children, ...remainingProps } = props;
   return (
     <button
       id={remainingProps.id}
@@ -9,7 +9,7 @@ const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = props =>
       name={remainingProps.name}
       type={remainingProps.type}
       value={remainingProps.value}
-      className={className}
+      className={remainingProps.className}
     >
       {children}
     </button>
