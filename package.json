@@ -71,7 +71,9 @@
     "tslib": "^1.10.0",
     "typescript": "^3.6.4"
   },
-  "dependencies": {},
+  "dependencies": {
+    "uswds": "^2.2.1"
+  },
   "jest": {
     "verbose": true,
     "testPathIgnorePatterns": [
