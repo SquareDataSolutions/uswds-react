@@ -1,61 +1,61 @@
 import * as React from 'react';
-import { DefaultButton } from '.';
+import * as Buttons from './';
 import { storiesOf } from '@storybook/react';
 
 const stories = storiesOf('Button', module);
 
 stories.add('Default', () => {
   return (
-    <DefaultButton className={'usa-button'}>
+    <Buttons.DefaultButton >
       {'Click Me'}
-    </DefaultButton >
+    </Buttons.DefaultButton >
   )
 });
 
 stories.add('Secondary Color', () => {
   return (
-    <DefaultButton className={'usa-button usa-button--secondary'}>
+    <Buttons.SecondayButton >
       {'Click Me'}
-    </DefaultButton >
+    </Buttons.SecondayButton >
   )
 });
 
 stories.add('Accent Cool Color', () => {
   return (
-    <DefaultButton className={'usa-button usa-button--accent-cool'}>
+    <Buttons.AccentCoolButton >
       {'Click Me'}
-    </DefaultButton >
+    </Buttons.AccentCoolButton >
   )
 });
 
 stories.add('Base Color', () => {
   return (
-    <DefaultButton className={'usa-button usa-button--base'}>
+    <Buttons.BaseButton >
       {'Click Me'}
-    </DefaultButton >
+    </Buttons.BaseButton >
   )
 });
 
 stories.add('Outline', () => {
   return (
-    <DefaultButton className={'usa-button usa-button--outline'}>
+    <Buttons.OutlineButton>
       {'Click Me'}
-    </DefaultButton >
+    </Buttons.OutlineButton >
   )
 });
 
 stories.add('Outline Inverse', () => {
   return (
-    <DefaultButton className={'usa-button usa-button--outline usa-button--inverse'}>
+    <Buttons.OutlineInverseButton >
       {'Click Me'}
-    </DefaultButton >
+    </Buttons.OutlineInverseButton >
   )
 });
 
 stories.add('Big Button', () => {
   return (
-    <DefaultButton className={'usa-button usa-button--big'}>
+    <Buttons.BigButton >
       {'Click Me'}
-    </DefaultButton >
+    </Buttons.BigButton >
   )
 });

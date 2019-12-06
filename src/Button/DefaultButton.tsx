@@ -7,7 +7,7 @@ interface DefaultButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 const DefaultButton: React.FC<DefaultButtonProps> = ({ children, ...other }) => (
-  <Button {...other}>
+  <Button className={'usa-button'} {...other}>
     {children}
   </Button>
 );

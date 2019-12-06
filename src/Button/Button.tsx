@@ -1,15 +1,23 @@
 import React from 'react';
 
 const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = props => {
-  const { children, ...remainingProps } = props;
+  const {
+    children,
+    id,
+    disabled,
+    name,
+    type,
+    value,
+    className } = props;
+
   return (
     <button
-      id={remainingProps.id}
-      disabled={remainingProps.disabled}
-      name={remainingProps.name}
-      type={remainingProps.type}
-      value={remainingProps.value}
-      className={remainingProps.className}
+      id={id}
+      disabled={disabled}
+      name={name}
+      type={type}
+      value={value}
+      className={className}
     >
       {children}
     </button>
