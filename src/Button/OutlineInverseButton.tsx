@@ -6,10 +6,10 @@ interface OutlineInverseButtonProps extends React.ButtonHTMLAttributes<HTMLButto
   children: string
 }
 
-const OutlineInverseButtonProps: React.FC<OutlineInverseButtonProps> = ({ children, ...other }) => (
+const OutlineInverseButton: React.FC<OutlineInverseButtonProps> = ({ children, ...other }) => (
   <Button className={'usa-button usa-button--outline usa-button--inverse'} {...other}>
     {children}
   </Button>
 );
 
-export default OutlineInverseButtonProps;
+export default OutlineInverseButton;
