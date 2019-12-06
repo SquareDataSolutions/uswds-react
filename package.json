@@ -10,18 +10,16 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsdx build",
-    "build-storybook": "build-storybook -c .storybook -o .out",
-    "deploy-storybook": "storybook-to-aws-s3 --bucket-path=uswds-react-preview.com/",
-    "dev": "start-storybook -p 9001 -c .storybook",
-    "lint": "eslint src/**/*.tsx",
-    "lint-check": "eslint --print-config src/index.ts | eslint-config-prettier-check",
-    "release": "standard-version",
     "start": "tsdx watch",
-    "storybook": "start-storybook",
+    "build": "tsdx build",
     "test": "npm run lint & jest",
     "test-coverage": "jest --coverage",
-    "test-watch": "jest --watch"
+    "test-watch": "jest --watch",
+    "lint": "eslint src/**/*.tsx",
+    "lint-check": "eslint --print-config src/index.ts | eslint-config-prettier-check",
+    "storybook": "start-storybook",
+    "dev": "start-storybook -p 9001 -c .storybook",
+    "release": "standard-version"
   },
   "peerDependencies": {
     "react": ">=16"
@@ -46,7 +44,6 @@
     "@babel/preset-react": "^7.6.3",
     "@babel/preset-typescript": "^7.6.0",
     "@storybook/react": "^5.2.5",
-    "@storybook/storybook-deployer": "^2.8.1",
     "@testing-library/jest-dom": "^4.2.3",
     "@testing-library/react": "^9.3.1",
     "@types/jest": "^24.0.21",
