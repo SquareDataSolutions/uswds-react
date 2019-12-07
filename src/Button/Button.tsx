@@ -7,7 +7,8 @@ const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = props =>
     name,
     type,
     value,
-    className } = props;
+    className,
+    onClick } = props;
 
   return (
     <button
@@ -17,6 +18,7 @@ const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = props =>
       type={type}
       value={value}
       className={className}
+      onClick={onClick}
     >
       {props.children}
     </button>
