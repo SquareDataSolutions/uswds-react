@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as Buttons from './';
 import { storiesOf } from '@storybook/react';
 
-const stories = storiesOf('Button', module);
+const stories = storiesOf('Form/Button', module);
 
 stories.add('Default', () => {
   return (
