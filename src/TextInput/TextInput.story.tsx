@@ -29,7 +29,7 @@ stories
     return (
       <TextInput
         placeholder={placeHolderText}
-        className={'Input Error'}
+        className={'usa-input usa-input--error'}
       />
     )
   })
