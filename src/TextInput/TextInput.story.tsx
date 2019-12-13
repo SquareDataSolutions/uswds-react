@@ -1,7 +1,7 @@
 import * as React from 'react';
 import TextInput from './TextInput';
 import { storiesOf } from '@storybook/react';
-import { text, select } from '@storybook/addon-knobs';
+import { text } from '@storybook/addon-knobs';
 
 const stories = storiesOf('Form/Text Input', module);
 
