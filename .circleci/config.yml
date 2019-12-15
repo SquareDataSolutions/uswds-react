@@ -12,9 +12,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Log Branch
-          command: echo "$CIRCLE_BRANCH"
-      - run:
           name: Install Dependencies
           command: npm install
       - run:
@@ -24,17 +21,17 @@ jobs:
           name: Build Package
           command: npm run build
       - persist_to_workspace:
-          root: ~repo
+          root: /root/project
           paths:
-            - .out
-            - dist
-            - node_modules
+            - .out/*
+            - dist/*
+            - node_modules/*
 
   deploy:
     executor: node
     steps:
       - attach_workspace:
-          at: ~repo
+          at: /root/project
       - run:
           name: Install awscli
           command: sudo pip install awscli
