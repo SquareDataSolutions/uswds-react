@@ -7,17 +7,17 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Log Branch
-          command: echo ${CIRCLE_BRANCH}
+        name: Log Branch
+        command: echo ${CIRCLE_BRANCH}
       - run:
-          name: Install Dependencies
-          command: npm install
+        name: Install Dependencies
+        command: npm install
       - run:
-          name: Run Tests
-          command: npm run test
+        name: Run Tests
+        command: npm run test
       - run:
-          name: Build Package
-          command: npm run build
+        name: Build Package
+        command: npm run build
   deploy:
     docker:
       - image: circleci/python:3.7-node
