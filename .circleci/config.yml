@@ -1,9 +1,9 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/repo
     docker:
-      - image: circleci/node:10
+      - image: circleci/python:3.7-node
+    working_directory: ~/repo
     steps:
       - checkout
       - run:
@@ -18,24 +18,14 @@ jobs:
       - run:
           name: Build Package
           command: npm run build
-    save_cache:
-      key: v1-repo-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
-      paths:
-        - ~/repo
   deploy:
     docker:
       - image: circleci/python:3.7-node
-    working_directory: ~/repo/
+    working_directory: ~/repo/.out
     steps:
-      - checkout
-      - restore_cache:
-          key: v1-repo-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: Install awscli
           command: sudo pip install awscli
-      - run:
-          name: Install Dependencies
-          command: npm install
       - run:
           name: Deploy storybook to S3
           command: npm run deploy-storybook
