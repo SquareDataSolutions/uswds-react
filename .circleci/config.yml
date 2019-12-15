@@ -21,7 +21,7 @@ jobs:
           name: Build Package
           command: npm run build
       - persist_to_workspace:
-          root: /root/project
+          root: /root/repo
           paths:
             - .out/*
             - dist/*
@@ -31,7 +31,7 @@ jobs:
     executor: node
     steps:
       - attach_workspace:
-          at: /root/project
+          at: /root/repo
       - run:
           name: Install awscli
           command: sudo pip install awscli
