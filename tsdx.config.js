@@ -1,4 +1,4 @@
-const scss = require('rollup-plugin-scss').scss;
+const scss = require('rollup-plugin-scss');
 
 module.exports = {
   rollup(config) {
