@@ -31,6 +31,7 @@ jobs:
   deploy-storybook:
     executor: node
     steps:
+      - checkout
       - run:
           name: Build Storybook
           command: npm run build-storybook
@@ -38,13 +39,6 @@ jobs:
           from: ./.out
           to: 's3://uswds-react-preview.com'
           overwrite: true
-
-  test-deploy:
-    executor: node
-    steps:
-      - run:
-          name: test branch again
-          command: npm run test
 
 workflows:
   version: 2
@@ -57,6 +51,3 @@ workflows:
           filters:
             branches:
               only: master
-      - test-deploy:
-          requires:
-            - build
