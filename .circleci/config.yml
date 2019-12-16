@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   aws-s3: circleci/aws-s3@1.0.11
+  aws-cli: circleci/aws-cli@x.y
 
 executors:
   node:
@@ -26,9 +27,9 @@ jobs:
       - run:
           name: Build Storybook
           command: npm run build-storybook
-      - run:
-          name: Install awscli
-          command: sudo pip install awscli
+      - aws-cli/setup:
+          profile-name: example
+          aws-region: us-east-2
       - aws-s3/sync:
           from: ./.out
           to: 's3://uswds-react-preview.com'
@@ -41,7 +42,8 @@ workflows:
   version: 2
   build-deploy:
     jobs:
-      - ci-cd
+      - ci-cd:
+          context: aws
       # - deploy:
       #     requires:
       #       - build
