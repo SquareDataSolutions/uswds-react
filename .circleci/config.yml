@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  aws-s3: circleci/aws-s3@1.0.11
+
 executors:
   node:
     docker:
@@ -21,11 +24,18 @@ jobs:
           name: Build Package
           command: npm run build
       - run:
+          name: Build Storybook
+          command: npm run build-storybook
+      - run:
           name: Install awscli
           command: sudo pip install awscli
-      - run:
-          name: Deploy storybook to S3
-          command: npm run deploy-storybook
+      - aws-s3/sync:
+          from: ./.out
+          to: 's3://uswds-react-preview.com'
+          overwrite: true
+      # - run:
+      #     name: Deploy storybook to S3
+      #     command: npm run deploy-storybook
 
 workflows:
   version: 2
