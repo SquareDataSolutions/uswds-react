@@ -42,8 +42,7 @@ workflows:
   version: 2
   build-deploy:
     jobs:
-      - ci-cd:
-          context: aws
+      - ci-cd
       # - deploy:
       #     requires:
       #       - build
