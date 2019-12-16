@@ -11,19 +11,31 @@ executors:
     working_directory: ~/repo
 
 jobs:
-  build:
+  get-code:
     executor: node
     steps:
       - checkout
       - run:
           name: Branch Name
           command: echo ${CIRCLE_BRANCH}
+
+  install-dependencies:
+    executor: node
+    steps:
       - run:
           name: Install Dependencies
           command: npm install
+
+  tests:
+    executor: node
+    steps:
       - run:
           name: Run Tests
           command: npm run test
+
+  build:
+    executor: node
+    steps:
       - run:
           name: Build Package
           command: npm run build
@@ -39,24 +51,23 @@ jobs:
           to: 's3://uswds-react-preview.com'
           overwrite: true
 
-  test-deploy:
-    executor: node
-    steps:
-      - run:
-          name: YOU DID IT
-          command: echo "GET IT GURL"
-
 workflows:
   version: 2
   build-deploy:
     jobs:
-      - build
+      - get-code
+      - install-dependencies:
+          requires:
+            - get-code
+      - tests:
+          requires:
+            - install-dependencies
+      - build:
+          requires:
+            - tests
       - deploy-storybook:
           requires:
             - build
           filters:
             branches:
               only: master
-      - test-deploy:
-          requires:
-            - build
