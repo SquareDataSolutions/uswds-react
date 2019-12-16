@@ -43,8 +43,8 @@ jobs:
     executor: node
     steps:
       - run:
-        name: YOU DID IT
-        command: echo 'GET IT GIRL'
+          name: YOU DID IT
+          command: echo "GET IT GURL"
 
 workflows:
   version: 2
