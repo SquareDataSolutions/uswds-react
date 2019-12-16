@@ -42,7 +42,7 @@ jobs:
   test-deploy:
     executor: node
     steps:
-      -run:
+      - run:
         name: YOU DID IT
         command: echo 'GET IT GIRL'
 
