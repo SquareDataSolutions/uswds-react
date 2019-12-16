@@ -2,7 +2,8 @@
   "prettier.singleQuote": true,
   "prettier.printWidth": 100,
   "prettier.tabWidth": 2,
-  "prettier.trailingComma": "all",
+  "prettier.arrowParens": "avoid",
+  "prettier.trailingComma": "es5",
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
@@ -12,5 +13,6 @@
     "typescript",
     "typescriptreact"
   ],
-  "eslint.enable": true
+  "eslint.enable": true,
+  "files.insertFinalNewline": true
 }
