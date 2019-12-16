@@ -44,7 +44,7 @@ workflows:
   build-deploy:
     jobs:
       - build
-      - build:
+      - deploy-storybook:
           requires:
             - build
           filters:
