@@ -40,3 +40,6 @@ workflows:
   build-deploy:
     jobs:
       - ci-cd
+        filters:
+          branches:
+            only: master

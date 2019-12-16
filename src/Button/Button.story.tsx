@@ -33,7 +33,3 @@ stories.add('Outline Inverse', () => {
 stories.add('Big Button', () => {
   return <Buttons.BigButton>{'Click Me'}</Buttons.BigButton>;
 });
-
-stories.add('TAYLOR DID IT!', () => {
-  return <div>TAYLOR DID IT</div>;
-});
