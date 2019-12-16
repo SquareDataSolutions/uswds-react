@@ -16,6 +16,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Branch Name
+          command: echo ${CIRCLE_BRANCH}
+      - run:
           name: Install Dependencies
           command: npm install
       - run:
@@ -27,9 +30,6 @@ jobs:
       - run:
           name: Build Storybook
           command: npm run build-storybook
-      - aws-cli/setup:
-          profile-name: example
-          aws-region: us-east-2
       - aws-s3/sync:
           from: ./.out
           to: 's3://uswds-react-preview.com'
