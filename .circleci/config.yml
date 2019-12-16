@@ -12,6 +12,9 @@ executors:
 
 jobs:
   ci-cd:
+    branches:
+      only:
+        - master
     executor: node
     steps:
       - checkout
@@ -40,6 +43,3 @@ workflows:
   build-deploy:
     jobs:
       - ci-cd
-        filters:
-          branches:
-            only: master
