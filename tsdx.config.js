@@ -1,4 +1,5 @@
-import scss from 'rollup-plugin-scss';
+/* eslint-disable */
+const scss = require('rollup-plugin-scss');
 
 module.exports = {
   rollup(config) {

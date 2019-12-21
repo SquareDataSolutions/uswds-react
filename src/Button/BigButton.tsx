@@ -1,9 +1,8 @@
 import React from 'react';
 import Button from './Button';
-import '../index';
 
 interface BigButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children: string
+  children: string;
 }
 
 const BigButton: React.FC<BigButtonProps> = ({ children, ...other }) => (
