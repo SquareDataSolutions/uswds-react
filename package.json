@@ -68,7 +68,7 @@
     "react-dom": "^16.11.0",
     "rollup-plugin-scss": "^1.0.2",
     "sass-loader": "^8.0.0",
-    "standard-version": "^7.0.0",
+    "standard-version": "^8.0.1",
     "style-loader": "^1.0.0",
     "tsdx": "^0.11.0",
     "tslib": "^1.10.0",
